@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser');
 const { requireAuth,checkOwner, checkUser } = require('./middleware/authMiddleware');
 const eventRoutes = require('./routes/EventRoutes')
 const app = express();
-
+const dotenv = require("dotenv");
+dotenv.config();
 // middleware
 app.use(express.static('public'));
 app.use(express.json());
@@ -13,9 +14,8 @@ app.use(cookieParser());
 
 // view engine
 app.set('view engine', 'ejs');
-
+const dbURI = process.env.MONGODB_URI;
 // database connection
-const dbURI = 'mongodb+srv://snehal:test@cc.8hdyetj.mongodb.net/test?retryWrites=true&w=majority&appName=CC';
 mongoose.connect(dbURI)
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
