@@ -23,7 +23,7 @@ mongoose.connect(dbURI)
   app.use(express.urlencoded({extended:true}));
 
 // routes
-app.use('/events',eventRoutes);
+app.use('/events',requireAuth,eventRoutes);
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('home'));
 app.get('/geneticx', requireAuth, (req, res) => res.render('geneticx'));

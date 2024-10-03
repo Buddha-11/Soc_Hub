@@ -14,7 +14,8 @@
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.1",
     "nodemon": "^3.1.0",
-    "validator": "^13.11.0"
+    "validator": "^13.11.0",
+    "vercel": "^37.6.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
